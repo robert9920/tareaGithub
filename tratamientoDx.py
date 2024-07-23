@@ -21,5 +21,24 @@ def eliminar_columnas_vacias(dataframe):
 
     return dataframe
 
-def eliminar_columnas_vacias(df):
-    return df.dropna(axis=1, how='all')
+def eliminar_filas_erroneas(dataframe):
+
+    # Identificar y mostrar filas con valores nulos
+    filas_con_nulos = dataframe[dataframe.isnull().any(axis=1)]
+    if not filas_con_nulos.empty:
+        print("Filas con valores nulos:")
+        print(filas_con_nulos)
+
+    # Eliminar filas con valores nulos
+    dataframe = dataframe.dropna(axis=0)
+
+    # Identificar y mostrar filas con valores vacíos
+    filas_con_vacios = dataframe[dataframe.apply(lambda row: any(isinstance(x, str) and x.strip() == '' for x in row), axis=1)]
+    if not filas_con_vacios.empty:
+        print("Filas con valores vacíos:")
+        print(filas_con_vacios)
+
+    # Eliminar filas con valores vacíos
+    dataframe = dataframe[~dataframe.apply(lambda row: any(isinstance(x, str) and x.strip() == '' for x in row), axis=1)]
+
+    return dataframe
