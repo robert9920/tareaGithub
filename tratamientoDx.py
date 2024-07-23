@@ -20,3 +20,6 @@ def eliminar_columnas_vacias(dataframe):
     dataframe = dataframe.drop(columns=cols_con_vacios)
 
     return dataframe
+
+def eliminar_columnas_vacias(df):
+    return df.dropna(axis=1, how='all')

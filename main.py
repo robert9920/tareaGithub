@@ -1,5 +1,5 @@
 import exploracionDx as ex
-import tratamientoDx as ex
+import tratamientoDx as tr
 import os
 import pandas as pd
 
@@ -11,9 +11,6 @@ def load_dataset(path):
         return pd.read_excel(path)
     else:
         raise ValueError("Formato de archivo no soportado. Usar .csv o .xlsx")
-
-def eliminar_columnas_vacias(df):
-    return df.dropna(axis=1, how='all')
 
 def main():
     file_n = input("Por favor digite el nombre del archivo: ")
@@ -31,7 +28,8 @@ def main():
         print("\n")
         print("1. Hallar correlación de pares de variables")
         print("2. Eliminar columnas vacías y filas vacías")
-        print("3. Salir")
+        print("3. Realizar grafica del tipo pairplot")
+        print("4. Salir")
         print("\n")
         print("Escriba el número de la funcionalidad deseada: ")
         n = int(input())
@@ -40,13 +38,14 @@ def main():
         if n == 1:
             ex.corrVar(df)
         elif n == 2:
-            df_limpio_columnas = eliminar_columnas_vacias(df)
+            df_limpio_columnas = tr.eliminar_columnas_vacias(df)
             print("Después de eliminar columnas con valores nulos o vacíos:")
             print(df_limpio_columnas)
             print("Columnas que quedaron:")
             print(df_limpio_columnas.columns)
-
         elif n == 3:
+            ex.graficar_pairplot(df)
+        elif n == 4:
             exit = True
         else:
             print("Número no valido")
