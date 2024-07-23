@@ -1,3 +1,5 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 def corrVar(df):
     print("Su dataframe presenta las siguientes variables del tipo cuantitativo:")
@@ -24,3 +26,8 @@ def corrVar(df):
     corr = df[col1].corr(df[col2])
 
     print(f"La correlacion entre la variable 1 y 2 es: {corr:.4f}")
+
+
+def graficar_pairplot(data, hue=None, palette = "Set2", filename="pairplot.png"):
+    pairplot = sns.pairplot(data, hue = hue, palette = palette)
+    plt.show()
