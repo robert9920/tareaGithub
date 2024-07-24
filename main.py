@@ -1,5 +1,3 @@
->>>>>
-
 import exploracionDx as ex
 import tratamientoDx as tr
 import os
@@ -29,10 +27,9 @@ def main():
         print("Se tienen las siguientes funcionalidades:")
         print("\n")
         print("1. Hallar correlación de pares de variables")
-        print("2. Eliminar columnas vacías")
+        print("2. Eliminar columnas vacías y filas vacías")
         print("3. Realizar grafica del tipo pairplot")
-        print("4. Eliminar filas vacías")
-        print("5. Salir")
+        print("4. Salir")
         print("\n")
         print("Escriba el número de la funcionalidad deseada: ")
         n = int(input())
@@ -49,10 +46,6 @@ def main():
         elif n == 3:
             ex.graficar_pairplot(df)
         elif n == 4:
-            df_limpio_filas = tr.eliminar_filas_erroneas(df)
-            print("DataFrame después de eliminar filas con valores nulos o vacíos:")
-            print(df_limpio_filas)
-        elif n == 5:
             exit = True
         else:
             print("Número no valido")
