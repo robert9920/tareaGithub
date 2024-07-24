@@ -41,8 +41,4 @@ def eliminar_filas_erroneas(dataframe):
     # Eliminar filas con valores vacíos
     dataframe = dataframe[~dataframe.apply(lambda row: any(isinstance(x, str) and x.strip() == '' for x in row), axis=1)]
 
-<<<<<<< HEAD
     return dataframe
-=======
-    return dataframe
->>>>>>> tratamiento
