@@ -11,7 +11,7 @@ def load_dataset(path):
         raise ValueError("Formato de archivo no soportado. Usar .csv o .xlsx")
 
 def main():
-    dataset_path = input("Ingrese el nombre del archivo: ")
+    dataset_path = input("Ingrese nombre del archivo: ")
     try:
         df = load_dataset(dataset_path)
     except ValueError as e:
@@ -24,7 +24,6 @@ def main():
     print(df_limpio_columnas)
     print("Columnas que quedaron:")
     print(df_limpio_columnas.columns)
-
     print("Data después de eliminar filas y columnas con valores nulos o vacíos:")
     print(df_limpio)
     
