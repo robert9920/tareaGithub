@@ -31,3 +31,8 @@ def corrVar(df):
 def graficar_pairplot(data, hue=None, palette = "Set2", filename="pairplot.png"):
     pairplot = sns.pairplot(data, hue = hue, palette = palette)
     plt.show()
+
+
+
+def funcfinal():
+    print("Final")
